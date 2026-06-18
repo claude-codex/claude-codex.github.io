@@ -6,7 +6,7 @@
 <meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
 <meta content="light" name="color-scheme"/>
 <title>Dive into Claude Code — Flow Atlas · Reading Notes</title>
-<meta content="Diagram-first reading notes for Liu et al. 2026, 'Dive into Claude Code.' Eight animated subsystem flows. arXiv:2604.14228v1." name="description"/>
+<meta content="Diagram-first reading notes for the paper (2026), 'Dive into Claude Code.' Eight animated subsystem flows. arXiv:2604.14228v1." name="description"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
@@ -2107,14 +2107,14 @@ aside.sidebar nav ol li a.active::after { opacity: 1; }
 <aside class="sidebar" id="sidebar">
 <div class="kicker">Flow Atlas</div>
 <h1>Dive into Claude Code</h1>
-<div class="subtitle">Diagram-first reading notes · Liu et al. 2026</div>
+<div class="subtitle">Diagram-first reading notes · the paper (2026)</div>
 <nav aria-label="Table of contents">
 <ol><li><a href="#tldr">TL;DR</a></li><li><a href="#values">Values &amp; 13 principles</a></li><li><a href="#flow-architecture">Flow 1 · Seven-component architecture</a></li><li><a href="#flow-layers">Flow 2 · Five-layer decomposition</a></li><li><a href="#flow-loop">Flow 3 · Agent query loop</a></li><li><a href="#flow-permissions">Flow 4 · Seven-layer permission gate</a></li><li><a href="#flow-extensibility">Flow 5 · Four extension mechanisms</a></li><li><a href="#flow-context">Flow 6 · Context &amp; 5-layer compaction</a></li><li><a href="#flow-subagents">Flow 7 · Subagent isolation</a></li><li><a href="#flow-persistence">Flow 8 · Session persistence &amp; recovery</a></li><li><a href="#walkthrough">End-to-end walkthrough</a></li><li><a href="#openclaw">OpenClaw contrast</a></li><li><a href="#tensions">Tensions &amp; trade-offs</a></li><li><a href="#opendirs">Six open directions</a></li><li><a href="#related-work">Related work &amp; taxonomy</a></li><li><a href="#conclusion">Conclusion</a></li><li><a href="#package-structure">Package structure</a></li><li><a href="#methodology">Methodology &amp; evidence</a></li><li><a href="#notcovered">What paper does NOT cover</a></li><li><a href="#myqs">Open questions (mine)</a></li><li><a href="#bib">References</a></li></ol>
 </nav>
 <div class="foot">
-      Prepared by <strong>Hemprasad Badgujar</strong><br/>
-      Paper: Liu et al. 2026 · arXiv:2604.14228v1<br/>
-      Repo: <a href="https://github.com/VILA-Lab/Dive-into-Claude-Code">VILA-Lab/Dive-into-Claude-Code</a>
+      Prepared by <strong>an independent reader</strong><br/>
+      Paper: the paper (2026) · arXiv:2604.14228v1<br/>
+      Repo: <a href="https://arxiv.org/abs/2604.14228">the paper</a>
 </div>
 </aside>
 <!-- =============== MAIN =============== -->
@@ -2142,12 +2142,12 @@ aside.sidebar nav ol li a.active::after { opacity: 1; }
 <div class="stats-group" data-tier="evidence">
 <div class="stats-group-label">Evidence from the field</div>
 <div class="stats-row stats-row--6">
-<div class="stat"><div class="num">93%</div><div class="lbl">permission approval rate</div><div class="tiny">Hughes 2026 · approval fatigue</div></div>
+<div class="stat"><div class="num">93%</div><div class="lbl">permission approval rate</div><div class="tiny">user-study data (2026) · approval fatigue</div></div>
 <div class="stat"><div class="num">~84%</div><div class="lbl">sandbox prompt reduction</div><div class="tiny">Dworken &amp; Weller-Davies 2025</div></div>
 <div class="stat"><div class="num">7×</div><div class="lbl">tokens · agent-team mode</div><div class="tiny">Anthropic 2025b · plan-mode baseline</div></div>
-<div class="stat"><div class="num">19%</div><div class="lbl">slower (perceived +20%)</div><div class="tiny">Becker 2025 · 16-dev RCT</div></div>
-<div class="stat"><div class="num">+40.7%</div><div class="lbl">code complexity increase</div><div class="tiny">He 2025 · 807 Cursor repos</div></div>
-<div class="stat"><div class="num">~17%</div><div class="lbl">lower comprehension</div><div class="tiny">Shen &amp; Tamkin 2026</div></div>
+<div class="stat"><div class="num">19%</div><div class="lbl">slower (perceived +20%)</div><div class="tiny">an RCT study (2025) · 16-dev RCT</div></div>
+<div class="stat"><div class="num">+40.7%</div><div class="lbl">code complexity increase</div><div class="tiny">complexity study (2025) · 807 Cursor repos</div></div>
+<div class="stat"><div class="num">~17%</div><div class="lbl">lower comprehension</div><div class="tiny">comprehension-study authors (2026)</div></div>
 </div>
 </div>
 <!-- Subsystem-scale tier — what the architecture looks like -->
@@ -2175,8 +2175,8 @@ aside.sidebar nav ol li a.active::after { opacity: 1; }
 </div>
 </div>
 <div class="meta">
-<span><strong>Authors</strong> Liu, Zhao, Shang, Shen</span>
-<span><strong>Institution</strong> VILA Lab, MBZUAI / UCL</span>
+<span><strong>Authors</strong> the paper authors</span>
+<span><strong>Institution</strong> Research lab</span>
 <span><strong>Published</strong> 14 Apr 2026</span>
 <span><strong>arXiv</strong> 2604.14228v1 [cs.SE]</span>
 </div>
@@ -2202,7 +2202,7 @@ aside.sidebar nav ol li a.active::after { opacity: 1; }
 <details class="acc" data-reveal="">
 <summary>Worth noting up front<span class="tag">Scope</span></summary>
 <div class="acc-body">
-<p>The paper is honest that source-level reading can't adjudicate the long-horizon human-capability question. It also doesn't run any experiments — the empirical claims are borrowed from cited work: Becker 2025 (16-dev RCT, 19% slower despite perceived 20% improvement); Huang 2025 (132-engineer Anthropic survey); He 2025 (807 Cursor repos, +40.7% complexity); Liu 2026 (304K AI commits). Read it as architectural ethnography, not measurement.</p>
+<p>The paper is honest that source-level reading can't adjudicate the long-horizon human-capability question. It also doesn't run any experiments — the empirical claims are borrowed from cited work: an RCT study (2025) (16-dev RCT, 19% slower despite perceived 20% improvement); (132-engineer Anthropic survey, 2025); complexity study (2025) (807 Cursor repos, +40.7% complexity); (304K AI-commit study, 2026). Read it as architectural ethnography, not measurement.</p>
 </div>
 </details>
 </div>
@@ -2562,7 +2562,7 @@ aside.sidebar nav ol li a.active::after { opacity: 1; }
 <div class="acc-body">
 <blockquote>Agents must be able to work autonomously; their independent operation is exactly what makes them valuable. But humans should retain control over how their goals are pursued.<span class="attr">— Anthropic 2025a</span></blockquote>
 <blockquote>a Unix utility rather than a traditional product.<span class="attr">— Cherny &amp; Wu 2025 (on Claude Code's philosophy)</span></blockquote>
-<p>Hughes 2026 names four auto-mode risk categories: <em>overeager behavior, honest mistakes, prompt injection, model misalignment</em>.</p>
+<p>user-study data (2026) names four auto-mode risk categories: <em>overeager behavior, honest mistakes, prompt injection, model misalignment</em>.</p>
 </div>
 </details>
 </div>
@@ -2586,28 +2586,28 @@ aside.sidebar nav ol li a.active::after { opacity: 1; }
 <!-- Card 1 -->
 <rect fill="#ffffff" filter="url(#ltcp-sh)" height="96" rx="12" stroke="#c4b8a8" stroke-width="1.8" width="220" x="30" y="170"></rect>
 <rect fill="#d97757" height="96" rx="3" width="6" x="30" y="170"></rect>
-<text font-size="13" font-weight="800" text-anchor="middle" x="140" y="196">Becker 2025</text>
+<text font-size="13" font-weight="800" text-anchor="middle" x="140" y="196">an RCT study (2025)</text>
 <text fill="#5f6368" font-size="11" text-anchor="middle" x="140" y="214">16-developer RCT</text>
 <text fill="#8b3a2b" font-size="11.5" font-weight="700" text-anchor="middle" x="140" y="234">19% slower</text>
 <text fill="#5f6368" font-size="10.5" text-anchor="middle" x="140" y="252">despite +20% perceived speedup</text>
 <!-- Card 2 -->
 <rect fill="#ffffff" filter="url(#ltcp-sh)" height="96" rx="12" stroke="#c4b8a8" stroke-width="1.8" width="220" x="270" y="170"></rect>
 <rect fill="#d97757" height="96" rx="3" width="6" x="270" y="170"></rect>
-<text font-size="13" font-weight="800" text-anchor="middle" x="380" y="196">Kosmyna 2025</text>
+<text font-size="13" font-weight="800" text-anchor="middle" x="380" y="196">an EEG study (2025)</text>
 <text fill="#5f6368" font-size="11" text-anchor="middle" x="380" y="214">EEG study</text>
 <text fill="#8b3a2b" font-size="11.5" font-weight="700" text-anchor="middle" x="380" y="234">reduced theta / alpha</text>
 <text fill="#5f6368" font-size="10.5" text-anchor="middle" x="380" y="252">brain activity when AI-assisted</text>
 <!-- Card 3 -->
 <rect fill="#ffffff" filter="url(#ltcp-sh)" height="96" rx="12" stroke="#c4b8a8" stroke-width="1.8" width="220" x="510" y="170"></rect>
 <rect fill="#d97757" height="96" rx="3" width="6" x="510" y="170"></rect>
-<text font-size="13" font-weight="800" text-anchor="middle" x="620" y="196">Shen &amp; Tamkin 2026</text>
+<text font-size="13" font-weight="800" text-anchor="middle" x="620" y="196">comprehension-study authors (2026)</text>
 <text fill="#5f6368" font-size="11" text-anchor="middle" x="620" y="214">comprehension study</text>
 <text fill="#8b3a2b" font-size="11.5" font-weight="700" text-anchor="middle" x="620" y="234">~17% lower code</text>
 <text fill="#5f6368" font-size="10.5" text-anchor="middle" x="620" y="252">comprehension</text>
 <!-- Card 4 -->
 <rect fill="#ffffff" filter="url(#ltcp-sh)" height="96" rx="12" stroke="#c4b8a8" stroke-width="1.8" width="180" x="750" y="170"></rect>
 <rect fill="#d97757" height="96" rx="3" width="6" x="750" y="170"></rect>
-<text font-size="13" font-weight="800" text-anchor="middle" x="840" y="196">Barke · Perry · Xue</text>
+<text font-size="13" font-weight="800" text-anchor="middle" x="840" y="196">usage &amp; security studies</text>
 <text fill="#5f6368" font-size="11" text-anchor="middle" x="840" y="214">usage + security studies</text>
 <text fill="#8b3a2b" font-size="11.5" font-weight="700" text-anchor="middle" x="840" y="234">heterogeneity signals</text>
 <text fill="#5f6368" font-size="10.5" text-anchor="middle" x="840" y="252">across user populations</text>
@@ -2626,7 +2626,7 @@ aside.sidebar nav ol li a.active::after { opacity: 1; }
 <rect fill="#fbe6dd" height="52" rx="10" stroke="#d97757" stroke-width="1.5" width="900" x="30" y="330"></rect>
 <rect fill="#d97757" height="52" rx="3" width="6" x="30" y="330"></rect>
 <text fill="#8b3a2b" font-size="12" font-weight="700" x="50" y="352">"The most consequential open question is not how to add more autonomy, but</text>
-<text fill="#8b3a2b" font-size="12" font-weight="700" x="50" y="370">how to <tspan text-decoration="underline">preserve human capability over time</tspan>." <tspan fill="#5f6368" font-style="italic" font-weight="500">— Liu et al., Section 14 (closing)</tspan></text>
+<text fill="#8b3a2b" font-size="12" font-weight="700" x="50" y="370">how to <tspan text-decoration="underline">preserve human capability over time</tspan>." <tspan fill="#5f6368" font-style="italic" font-weight="500">— the paper, Section 14 (closing)</tspan></text>
 </g>
 </g>
 <!-- Animated packets feeding into the lens -->
@@ -2635,7 +2635,7 @@ aside.sidebar nav ol li a.active::after { opacity: 1; }
 <circle fill="#d97757" r="3.5"><animatemotion begin="1200ms" dur="3s" repeatcount="indefinite" rotate="auto"><mpath href="#ltcp-f3"></mpath></animatemotion></circle>
 <circle fill="#d97757" r="3.5"><animatemotion begin="1800ms" dur="3s" repeatcount="indefinite" rotate="auto"><mpath href="#ltcp-f4"></mpath></animatemotion></circle>
 </svg>
-<div class="fig-meta"><span class="label">Section 2.4 · evaluative lens</span><span>The paper introduces a <em>sixth</em> evaluation axis — not another value, but a test <em>over time</em>: does the harness leave its users more capable or less? Four independent studies are cited as early evidence that the answer isn't yet "yes": Becker's RCT finds a 19% slowdown despite perceived gain; Kosmyna's EEG work shows reduced theta/alpha when AI-assisted; Shen &amp; Tamkin measure ~17% lower code comprehension; Barke, Perry, Xue add usage-pattern and security heterogeneity signals. None of these individually resolve the question — but together they argue the bar is "preservation over time," not "peak-session productivity."</span></div>
+<div class="fig-meta"><span class="label">Section 2.4 · evaluative lens</span><span>The paper introduces a <em>sixth</em> evaluation axis — not another value, but a test <em>over time</em>: does the harness leave its users more capable or less? Four independent studies are cited as early evidence that the answer isn't yet "yes": Becker's RCT finds a 19% slowdown despite perceived gain; the EEG study work shows reduced theta/alpha when AI-assisted; comprehension-study authors measure ~17% lower code comprehension; usage-pattern &amp; security studies add usage-pattern and security heterogeneity signals. None of these individually resolve the question — but together they argue the bar is "preservation over time," not "peak-session productivity."</span></div>
 </div>
 </section>
 <!-- ================= FLOW 1 · ARCHITECTURE ================= -->
@@ -2686,7 +2686,7 @@ aside.sidebar nav ol li a.active::after { opacity: 1; }
 <circle class="d-packet d-packet--orange d-static" fill="#f6a86b" r="4"><animatemotion dur="3s" repeatcount="indefinite" rotate="auto"><mpath href="#p01b"></mpath></animatemotion></circle>
 <circle class="d-packet d-packet--blue d-static" fill="#8ab4f8" r="3.5"><animatemotion begin="400ms" dur="2.8s" repeatcount="indefinite" rotate="auto"><mpath href="#p01h"></mpath></animatemotion></circle>
 </svg>
-<div class="fig-meta"><span class="label">Figure 1 · redrawn</span><span>High-level system structure of Claude Code. The single agent loop in the centre is the load-bearing element — every interface converges on it, and every subsystem hangs off it. Adapted from Liu et al. 2026 Figure 1 (Section 3.2); arrow colour encodes subsystem identity.</span></div>
+<div class="fig-meta"><span class="label">Figure 1 · redrawn</span><span>High-level system structure of Claude Code. The single agent loop in the centre is the load-bearing element — every interface converges on it, and every subsystem hangs off it. Adapted from the paper (2026) Figure 1 (Section 3.2); arrow colour encodes subsystem identity.</span></div>
 </div>
 <div class="acc-grid cols-2" data-reveal="" data-stagger="">
 <details class="acc" data-reveal="">
@@ -4069,7 +4069,7 @@ aside.sidebar nav ol li a.active::after { opacity: 1; }
 </details>
 <div class="acc-grid cols-2" data-reveal="" data-stagger="">
 <details class="acc" data-reveal="">
-<summary>The 93% approval rate · why sandboxing matters<span class="tag">Section 5 · Hughes 2026</span></summary>
+<summary>The 93% approval rate · why sandboxing matters<span class="tag">Section 5 · user-study data (2026)</span></summary>
 <div class="acc-body">
 <blockquote>Users approve approximately 93% of permission prompts, indicating that approval fatigue renders interactive confirmation behaviorally unreliable as a sole safety mechanism.<span class="attr">— Section 5</span></blockquote>
 <p>The architectural response is sandboxing: <strong>Dworken &amp; Weller-Davies 2025</strong> found sandboxing <strong>cut prompts by ~84%</strong>. Safety reframed as a human-factors problem: reduce the number of decisions humans must make.</p>
@@ -4079,7 +4079,7 @@ aside.sidebar nav ol li a.active::after { opacity: 1; }
 <summary>Four CVEs — pre-trust init<span class="tag">Section 11.3 fn.3</span></summary>
 <div class="acc-body">
 <p>The pipeline depicts <em>spatial</em> ordering; Section 11.3 names the <em>temporal</em> gap. Hooks, MCP server connections, and settings resolve <em>before</em> the trust dialog.</p>
-<p><strong>Donenfeld &amp; Vanunu 2026 (Check Point):</strong> <span class="badge">CVE-2025-59536</span> (CVSS 8.7) · <span class="badge">CVE-2026-21852</span> (CVSS 5.3)</p>
+<p><strong>security research (2026) (Check Point):</strong> <span class="badge">CVE-2025-59536</span> (CVSS 8.7) · <span class="badge">CVE-2026-21852</span> (CVSS 5.3)</p>
 <p><strong>Beber 2025 "InversePrompt":</strong> <span class="badge">CVE-2025-54794</span> <span class="badge">CVE-2025-54795</span></p>
 <p>All four patched within weeks of disclosure. <span class="badge ok">PATCHED</span></p>
 </div>
@@ -5226,11 +5226,11 @@ aside.sidebar nav ol li a.active::after { opacity: 1; }
 <table>
 <thead><tr><th>Value pair</th><th>Tension</th><th>Cited evidence</th></tr></thead>
 <tbody>
-<tr><td>Authority × Safety</td><td>Approval fatigue vs. protection</td><td>93% approval rate (Hughes 2026)</td></tr>
-<tr><td>Safety × Capability</td><td>Performance vs. defense depth</td><td>&gt;50-subcommand fallback (Adversa.ai 2026)</td></tr>
-<tr><td>Adaptability × Safety</td><td>Extensibility vs. attack surface</td><td>Pre-trust init CVEs (Donenfeld &amp; Vanunu 2026)</td></tr>
-<tr><td>Capability × Adaptability</td><td>Proactivity vs. disruption</td><td>12–18% more tasks but preference drops at high freq (Chen 2025)</td></tr>
-<tr><td>Capability × Reliability</td><td>Velocity vs. coherence</td><td>Complexity +40.7% in adjacent tools (He 2025)</td></tr>
+<tr><td>Authority × Safety</td><td>Approval fatigue vs. protection</td><td>93% approval rate (user-study data (2026))</td></tr>
+<tr><td>Safety × Capability</td><td>Performance vs. defense depth</td><td>&gt;50-subcommand fallback (adversarial research (2026))</td></tr>
+<tr><td>Adaptability × Safety</td><td>Extensibility vs. attack surface</td><td>Pre-trust init CVEs (security research (2026))</td></tr>
+<tr><td>Capability × Adaptability</td><td>Proactivity vs. disruption</td><td>12–18% more tasks but preference drops at high freq (preference study (2025))</td></tr>
+<tr><td>Capability × Reliability</td><td>Velocity vs. coherence</td><td>Complexity +40.7% in adjacent tools (complexity study (2025))</td></tr>
 </tbody>
 </table>
 </div>
@@ -5280,7 +5280,7 @@ aside.sidebar nav ol li a.active::after { opacity: 1; }
 <div class="acc-grid cols-2" data-reveal="" data-stagger="" style="margin-top:12px;">
 <details class="acc" data-reveal=""><summary>Architectural decoupling<span class="tag">11.6</span></summary><div class="acc-body"><p>Treat the harness as an <em>interface</em> independent of any one model family. Swap frontiers without rewriting the deterministic layer. Hooks/skills/MCP already push this direction.</p></div></details>
 <details class="acc" data-reveal=""><summary>Memory as a first-class subsystem<span class="tag">11.6</span></summary><div class="acc-body"><p>CLAUDE.md + JSONL is a start, but neither fills the gap between <em>session-scoped</em> and <em>colleague-scale</em> memory. A unit between "transcript" and "wiki" is the open design slot.</p></div></details>
-<details class="acc" data-reveal=""><summary>Observability &amp; silent failure<span class="tag">11.6</span></summary><div class="acc-body"><p>Failure modes often go undetected because the agent still produces plausible output. Pathak trajectory-anomaly detection and Yao's pass^k metric are early moves; observability has to become architectural.</p></div></details>
+<details class="acc" data-reveal=""><summary>Observability &amp; silent failure<span class="tag">11.6</span></summary><div class="acc-body"><p>Failure modes often go undetected because the agent still produces plausible output. trajectory-anomaly research-anomaly detection and the pass^k metric metric are early moves; observability has to become architectural.</p></div></details>
 <details class="acc" data-reveal=""><summary>Governance surfaces<span class="tag">11.6</span></summary><div class="acc-body"><p>EU AI Act takes effect Aug 2026; MIT's AI Agent Index shows only 13.3% of agentic systems publish a safety card. Harnesses will need first-class audit surfaces, not after-the-fact dashboards.</p></div></details>
 <details class="acc" data-reveal=""><summary>Proactive architectures<span class="tag">11.6</span></summary><div class="acc-body"><p>Move from reactive "wait for user prompt" to proactive "watch signals and propose action." Requires much tighter approval UX — the user's cognitive budget becomes the binding resource, not tokens.</p></div></details>
 <details class="acc" data-reveal=""><summary>Long-term capability preservation<span class="tag">11.6</span></summary><div class="acc-body"><p>The evaluative lens from Section 2.4 returns here as an emerging direction: design the harness so users <em>grow</em> competence over sessions, not atrophy it. Nearly zero existing research instruments this.</p></div></details>
@@ -5294,12 +5294,12 @@ aside.sidebar nav ol li a.active::after { opacity: 1; }
 <p class="hook">What researchers building new agent systems should look at next.</p>
 </div>
 <div class="acc-grid cols-2" data-reveal="" data-stagger="">
-<details class="acc" data-reveal=""><summary>1 · Silent failure &amp; observability gap<span class="tag">Section 12.1</span></summary><div class="acc-body"><p>Cemri et al. 2025 — 14 failure modes. Pathak trajectory anomaly benchmark. Yao pass^k metric. Kapoor agent-benchmark critique.</p></div></details>
-<details class="acc" data-reveal=""><summary>2 · Persistence — colleague memory<span class="tag">Section 12.2</span></summary><div class="acc-body"><p>What belongs between CLAUDE.md and session JSONL? Hu 2025 memory survey. Packer LLM-as-OS. Chhikara Mem0. Xu agentic-mem.</p></div></details>
-<details class="acc" data-reveal=""><summary>3 · Harness boundary evolution<span class="tag">Section 12.3</span></summary><div class="acc-body"><blockquote>The space of interesting harness combinations doesn't shrink as models improve; it moves.<span class="attr">— Rajasekaran 2026</span></blockquote></div></details>
-<details class="acc" data-reveal=""><summary>4 · Horizon scaling<span class="tag">Section 12.4</span></summary><div class="acc-body"><p>Session → scientific program. Lu autonomous research; Gottweis multi-day; Novikov week-scale; METR 50%-time horizon.</p></div></details>
+<details class="acc" data-reveal=""><summary>1 · Silent failure &amp; observability gap<span class="tag">Section 12.1</span></summary><div class="acc-body"><p>failure-mode survey (2025) — 14 failure modes. trajectory-anomaly research anomaly benchmark. Yao pass^k metric. agent-benchmark critique.</p></div></details>
+<details class="acc" data-reveal=""><summary>2 · Persistence — colleague memory<span class="tag">Section 12.2</span></summary><div class="acc-body"><p>What belongs between CLAUDE.md and session JSONL? memory survey (2025). LLM-as-OS work. Mem0 system. agentic-memory work.</p></div></details>
+<details class="acc" data-reveal=""><summary>3 · Harness boundary evolution<span class="tag">Section 12.3</span></summary><div class="acc-body"><blockquote>The space of interesting harness combinations doesn't shrink as models improve; it moves.<span class="attr">— research note (2026)</span></blockquote></div></details>
+<details class="acc" data-reveal=""><summary>4 · Horizon scaling<span class="tag">Section 12.4</span></summary><div class="acc-body"><p>Session → scientific program. autonomous-research work; multi-day autonomy work; week-scale autonomy work; the 50%-time-horizon study.</p></div></details>
 <details class="acc" data-reveal=""><summary>5 · Governance at scale<span class="tag">Section 12.5</span></summary><div class="acc-body"><p>EU AI Act fully applicable Aug 2026. MIT AI Agent Index: only 13.3% of indexed agentic systems publish safety cards.</p></div></details>
-<details class="acc" data-reveal=""><summary>6 · Long-term human capability<span class="tag">Section 12.6</span></summary><div class="acc-body"><p>Shen &amp; Tamkin 2026: ~17% lower comprehension. Becker 2025: 16-dev RCT, 19% slower despite perceived 20% better. Kosmyna 2025 EEG. Barke, Perry.</p></div></details>
+<details class="acc" data-reveal=""><summary>6 · Long-term human capability<span class="tag">Section 12.6</span></summary><div class="acc-body"><p>comprehension-study authors (2026): ~17% lower comprehension. an RCT study (2025): 16-dev RCT, 19% slower despite perceived 20% better. an EEG study (2025). usage-pattern researchers.</p></div></details>
 </div>
 </section>
 <!-- ================= CONCLUSION ================= -->
@@ -5397,7 +5397,7 @@ aside.sidebar nav ol li a.active::after { opacity: 1; }
 <li><strong>Context management</strong> — embedding retrieval vs version-controllable files. Claude Code picks the latter.</li>
 <li><strong>Safety &amp; permissions</strong> — SWE-Agent/OpenHands use container isolation; Aider uses git-rollback; Claude Code uses deny-first per-action evaluation.</li>
 <li><strong>Protocols &amp; extensibility</strong> — MCP as extension standard; LangGraph's explicit state-graph orchestration as the alternative.</li>
-<li><strong>Software architecture</strong> — ReAct pattern (Yao 2022) for agent loops; Anthropic's five composable workflow patterns for higher-level composition.</li>
+<li><strong>Software architecture</strong> — ReAct pattern (ReAct paper (2022)) for agent loops; Anthropic's five composable workflow patterns for higher-level composition.</li>
 <li><strong>Positioning</strong> — "minimal scaffolding with layered policy enforcement" — a distinct point from both rule-based orchestration and container-isolated execution.</li>
 </ul>
 </div>
@@ -5410,7 +5410,7 @@ aside.sidebar nav ol li a.active::after { opacity: 1; }
 </div>
 <blockquote data-reveal="">
 <p>Production coding agents can be understood as answers to a recurring set of design questions. Claude Code occupies a clear design point within that space. It gives the model broad local autonomy while surrounding it with a dense deterministic harness for permissioning, tool routing, context compaction, and session recovery.</p>
-<span class="attr">— Liu et al. 2026, Section 14</span>
+<span class="attr">— the paper (2026), Section 14</span>
 </blockquote>
 <blockquote data-reveal="">
 <p>The most consequential open question is therefore not how to add more autonomy, but how to <strong>preserve human capability over time</strong>. Future systems could treat that <strong>sustainability gap as a first-class design problem, not a downstream evaluation metric</strong>.</p>
@@ -5622,31 +5622,31 @@ aside.sidebar nav ol li a.active::after { opacity: 1; }
 <h2><span class="num">20</span>Condensed bibliography</h2>
 </div>
 <ul data-reveal="" style="columns: 2; column-gap: 32px; font-size: 13px; padding-left: 20px;">
-<li><strong>Liu, Zhao, Shang, Shen 2026.</strong> Dive into Claude Code. arXiv:2604.14228v1.</li>
+<li><strong>Authors (2026).</strong> Dive into Claude Code. arXiv:2604.14228v1.</li>
 <li><strong>Anthropic 2025a.</strong> Framework for safe &amp; trustworthy agents.</li>
 <li><strong>Anthropic 2025b.</strong> Orchestrate teams of Claude Code sessions.</li>
-<li><strong>Hughes 2026.</strong> Auto mode — 93% approval finding.</li>
+<li><strong>user-study data (2026).</strong> Auto mode — 93% approval finding.</li>
 <li><strong>Dworken &amp; Weller-Davies 2025.</strong> ~84% sandbox prompt reduction.</li>
 <li><strong>Schluntz &amp; Zhang 2024.</strong> Building Effective Agents.</li>
-<li><strong>Rajasekaran 2026.</strong> Harness Design essay.</li>
-<li><strong>Yao et al. 2022.</strong> ReAct.</li>
+<li><strong>research note (2026).</strong> Harness Design essay.</li>
+<li><strong>ReAct-paper authors.</strong> ReAct.</li>
 <li><strong>Zhou et al. 2023.</strong> LATS.</li>
 <li><strong>Yang 2024 / Wang 2024b.</strong> SWE-Agent / OpenHands.</li>
 <li><strong>Gauthier 2024.</strong> Aider.</li>
 <li><strong>Wu et al. 2024.</strong> AutoGen.</li>
 <li><strong>Steinberger &amp; contributors 2026.</strong> OpenClaw.</li>
-<li><strong>Huang et al. 2025.</strong> 132-engineer Anthropic survey.</li>
-<li><strong>Becker et al. 2025.</strong> 16-dev RCT, 19% slower despite perceived 20% better.</li>
-<li><strong>He et al. 2025.</strong> Cursor adoption, +40.7% complexity.</li>
-<li><strong>Liu et al. 2026.</strong> 304K AI commits audit.</li>
-<li><strong>Kosmyna et al. 2025.</strong> EEG — persistent connectivity loss.</li>
-<li><strong>Shen &amp; Tamkin 2026.</strong> ~17% lower comprehension.</li>
-<li><strong>Donenfeld &amp; Vanunu 2026.</strong> CVE-2025-59536, CVE-2026-21852.</li>
+<li><strong>Engineer-survey authors.</strong> 132-engineer Anthropic survey.</li>
+<li><strong>RCT-study authors.</strong> 16-dev RCT, 19% slower despite perceived 20% better.</li>
+<li><strong>Complexity-study authors.</strong> Cursor adoption, +40.7% complexity.</li>
+<li><strong>the paper (2026).</strong> 304K AI commits audit.</li>
+<li><strong>EEG-study authors.</strong> EEG — persistent connectivity loss.</li>
+<li><strong>comprehension-study authors (2026).</strong> ~17% lower comprehension.</li>
+<li><strong>security research (2026).</strong> CVE-2025-59536, CVE-2026-21852.</li>
 <li><strong>Beber 2025.</strong> "InversePrompt" — CVE-2025-54794, CVE-2025-54795.</li>
-<li><strong>Adversa.ai 2026.</strong> &gt;50-subcommand fallback.</li>
-<li><strong>Cemri et al. 2025.</strong> 14 multi-agent failure modes.</li>
-<li><strong>Pathak et al. 2025.</strong> Agent-trajectory anomaly benchmark.</li>
-<li><strong>Kapoor et al. 2024.</strong> AI agents that matter.</li>
+<li><strong>adversarial research (2026).</strong> &gt;50-subcommand fallback.</li>
+<li><strong>failure-mode survey (2025).</strong> 14 multi-agent failure modes.</li>
+<li><strong>trajectory researchers et al. 2025.</strong> Agent-trajectory anomaly benchmark.</li>
+<li><strong>Benchmark-critique authors.</strong> AI agents that matter.</li>
 <li><strong>Garlan &amp; Shaw 1993.</strong> Layered architecture tradition.</li>
 <li><strong>Linux Foundation 2025.</strong> MCP donation.</li>
 <li><strong>MindStudio Team 2026.</strong> File-based memory transparency.</li>
@@ -5657,9 +5657,9 @@ aside.sidebar nav ol li a.active::after { opacity: 1; }
 </div>
 <footer class="end">
 <div class="grid">
-<div><h5>Prepared by</h5><p><span class="name">Hemprasad Badgujar</span><br/><a href="mailto:hemprasad.badagujar@gmail.com">hemprasad.badagujar@gmail.com</a></p></div>
-<div><h5>Paper</h5><p>Liu et al. 2026<br/><a href="https://arxiv.org/abs/2604.14228">arXiv:2604.14228v1</a></p></div>
-<div><h5>Repo</h5><p><a href="https://github.com/VILA-Lab/Dive-into-Claude-Code">VILA-Lab/Dive-into-Claude-Code</a></p></div>
+<div><h5>Prepared by</h5><p><span class="name">an independent reader</span><br/><a href="mailto:hemprasad.badagujar@gmail.com">hemprasad.badagujar@gmail.com</a></p></div>
+<div><h5>Paper</h5><p>the paper (2026)<br/><a href="https://arxiv.org/abs/2604.14228">arXiv:2604.14228v1</a></p></div>
+<div><h5>Repo</h5><p><a href="https://arxiv.org/abs/2604.14228">the paper</a></p></div>
 <div><h5>Bias note</h5><p>I've surfaced where the paper's framing is editorial (1.6% claim, values-over-rules, evaluative-lens choice) so a researcher won't mistake my synthesis for the paper's adjudicated findings.</p></div>
 </div>
 </footer>
